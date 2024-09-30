@@ -102,7 +102,7 @@ export default function Form() {
         </div>
       </form>
       {isLoading ? (
-        'Loading...'
+        `Loading...`
       ) : (
         <div>
           {guests.map((guest, index) => {
