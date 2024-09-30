@@ -100,59 +100,60 @@ export default function Form() {
             />
           </div>
         </div>
-      </form>
-      {isLoading ? (
-        `Loading...`
-      ) : (
-        <div>
-          {guests.map((guest, index) => {
-            return (
-              <div
-                key={`guest-${guest.id}`}
-                className={styles.guest}
-                data-test-id="guest"
-              >
-                <input
-                  type="checkbox"
-                  aria-label={
-                    guest.attending
-                      ? `${guest.firstName} ${guest.lastName} true`
-                      : `${guest.firstName} ${guest.lastName} false`
-                  }
-                  checked={guest.attending}
-                  onChange={async () => {
-                    const newGuests = [...guests];
-                    if (newGuests[index].attending) {
-                      newGuests[index].attending = false;
-                    } else {
-                      newGuests[index].attending = true;
-                    }
-                    setGuests(newGuests);
-                    console.log('attending: ' + newGuests[index].attending);
-                    await updateGuest(
-                      newGuests[index].id,
-                      newGuests[index].attending,
-                    );
-                  }}
-                />
-                <div>{guest.firstName}</div>
-                <div>{guest.lastName}</div>
-                <button
-                  aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
-                  onClick={async () => {
-                    const newGuests = [...guests];
-                    newGuests.splice(index, 1);
-                    await deleteGuest(guest.id);
-                    setGuests(newGuests);
-                  }}
+
+        {isLoading ? (
+          `Loading...`
+        ) : (
+          <div>
+            {guests.map((guest, index) => {
+              return (
+                <div
+                  key={`guest-${guest.id}`}
+                  className={styles.guest}
+                  data-test-id="guest"
                 >
-                  Remove
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      )}
+                  <input
+                    type="checkbox"
+                    aria-label={
+                      guest.attending
+                        ? `${guest.firstName} ${guest.lastName} true`
+                        : `${guest.firstName} ${guest.lastName} false`
+                    }
+                    checked={guest.attending}
+                    onChange={async () => {
+                      const newGuests = [...guests];
+                      if (newGuests[index].attending) {
+                        newGuests[index].attending = false;
+                      } else {
+                        newGuests[index].attending = true;
+                      }
+                      setGuests(newGuests);
+                      //console.log('attending: ' + newGuests[index].attending);
+                      await updateGuest(
+                        newGuests[index].id,
+                        newGuests[index].attending,
+                      );
+                    }}
+                  />
+                  <div>{guest.firstName}</div>
+                  <div>{guest.lastName}</div>
+                  <button
+                    aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
+                    onClick={async () => {
+                      const newGuests = [...guests];
+                      newGuests.splice(index, 1);
+                      await deleteGuest(guest.id);
+                      setGuests(newGuests);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </form>
     </div>
   );
 }
