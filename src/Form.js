@@ -147,7 +147,6 @@ export default function Form() {
                   <div>{guest.firstName}</div>
                   <div>{guest.lastName}</div>
                   <button
-                    aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
                     onClick={async () => {
                       const newGuests = [...guests];
                       newGuests.splice(index, 1);
