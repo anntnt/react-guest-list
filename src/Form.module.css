@@ -1,0 +1,23 @@
+.guestInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+}
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.guest {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  div {
+    width: 30%;
+  }
+}
