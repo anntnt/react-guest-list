@@ -126,8 +126,8 @@ export default function Form() {
                     type="checkbox"
                     aria-label={
                       guest.attending
-                        ? `${guest.firstName} ${guest.lastName} true`
-                        : `${guest.firstName} ${guest.lastName} false`
+                        ? `${guest.firstName} ${guest.lastName} attending true`
+                        : `${guest.firstName} ${guest.lastName} attending false`
                     }
                     checked={guest.attending}
                     onChange={async () => {
