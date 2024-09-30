@@ -128,7 +128,6 @@ export default function Form() {
                         newGuests[index].attending = true;
                       }
                       setGuests(newGuests);
-                      //console.log('attending: ' + newGuests[index].attending);
                       await updateGuest(
                         newGuests[index].id,
                         newGuests[index].attending,
