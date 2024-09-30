@@ -19,7 +19,7 @@ export default function Form() {
       // set Timer to see the text "Loading..."
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 100);
       return () => clearTimeout(timer);
     }
     getAllGuests().catch((error) => {
