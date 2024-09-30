@@ -69,7 +69,7 @@ export default function Form() {
               onChange={(event) => {
                 setFirstName(event.currentTarget.value);
               }}
-              disabled={isLoading ? true : false}
+              disabled={isLoading}
             />
           </div>
           <div className={styles.inputGroup}>
@@ -77,7 +77,7 @@ export default function Form() {
             <input
               value={lastName}
               id="lastName"
-              disabled={isLoading ? true : false}
+              disabled={isLoading}
               onChange={(event) => {
                 setLastName(event.currentTarget.value);
               }}
@@ -119,7 +119,7 @@ export default function Form() {
                       ? `${guest.firstName} ${guest.lastName} true`
                       : `${guest.firstName} ${guest.lastName} false`
                   }
-                  disabled={isLoading ? true : false}
+                  disabled={isLoading}
                   checked={guest.attending}
                   onChange={async () => {
                     const newGuests = [...guests];
@@ -136,8 +136,8 @@ export default function Form() {
                     );
                   }}
                 />
-                <div className={styles.firstName}>{guest.firstName}</div>
-                <div className={styles.lastName}>{guest.lastName}</div>
+                <div>{guest.firstName}</div>
+                <div>{guest.lastName}</div>
                 <button
                   aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
                   onClick={async () => {
