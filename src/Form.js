@@ -119,7 +119,6 @@ export default function Form() {
                       ? `${guest.firstName} ${guest.lastName} true`
                       : `${guest.firstName} ${guest.lastName} false`
                   }
-                  disabled={isLoading}
                   checked={guest.attending}
                   onChange={async () => {
                     const newGuests = [...guests];
@@ -146,7 +145,6 @@ export default function Form() {
                     await deleteGuest(guest.id);
                     setGuests(newGuests);
                   }}
-                  disabled={isLoading ? true : false}
                 >
                   Remove
                 </button>
