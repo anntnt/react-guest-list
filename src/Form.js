@@ -16,7 +16,11 @@ export default function Form() {
       });
       const allGuests = await response.json();
       setGuests(allGuests);
-      setIsLoading(false);
+      // set Timer to see the text "Loading..."
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 4000);
+      return () => clearTimeout(timer);
     }
     getAllGuests().catch((error) => {
       console.log(error);
