@@ -25,7 +25,7 @@ export default function Form() {
     getAllGuests().catch((error) => {
       console.log(error);
     });
-  });
+  }, []);
 
   async function createNewGuest(fName, lName) {
     const response = await fetch(`${baseUrl}/guests`, {
@@ -110,6 +110,7 @@ export default function Form() {
           ) : (
             <div>
               {guests.map((guest, index) => {
+                console.log(guest);
                 return (
                   <div
                     key={`guest-${guest.id}`}
