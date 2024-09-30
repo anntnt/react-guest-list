@@ -87,8 +87,12 @@ export default function Form() {
               }}
               onKeyDown={async (event) => {
                 if ((event.currentTarget.value && event.key) === 'Enter') {
+                  console.log(guests);
+                  console.log('guests.length' + guests.length);
                   const tmpGuestId =
-                    guests.length === 0 ? 0 : guests[guests.length - 1].id + 1;
+                    guests.length === 0
+                      ? 0
+                      : parseInt(guests[guests.length - 1].id) + 1;
                   const tmpNewGuest = {
                     id: tmpGuestId,
                     firstName: firstName,
@@ -104,13 +108,14 @@ export default function Form() {
             />
           </div>
         </div>
+
         <div>
           {isLoading ? (
             <div>Loading...</div>
           ) : (
             <div>
               {guests.map((guest, index) => {
-                console.log(guest);
+                console.log(`guest: guest`);
                 return (
                   <div
                     key={`guest-${guest.id}`}
